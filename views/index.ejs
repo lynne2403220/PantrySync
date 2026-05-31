@@ -1,0 +1,59 @@
+<%- include('partials/header') %>
+
+<section class="hero">
+    <div class="hero-copy">
+        <p class="eyebrow">Zero-Waste Recipe System</p>
+        <h1>Turn your pantry into a recipe engine.</h1>
+        <p>PantrySync tracks expiry dates, recommends meals, suggests substitutions, and builds shopping lists before food is wasted.</p>
+        <div class="actions">
+            <a class="button primary" href="/login">Login</a>
+            <a class="button" href="/register">Register</a>
+        </div>
+    </div>
+    <div class="hero-card panel">
+        <div class="fridge-preview">
+            <div class="fridge-door">
+                <span>🥕</span>
+                <span>🥛</span>
+                <span>🍞</span>
+            </div>
+            <div class="fridge-note">
+                <strong>Use first</strong>
+                <p>Tomatoes expire in 2 days</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="grid three feature-row">
+    <article class="panel feature-card">
+        <span class="panel-icon">🥫</span>
+        <h2>My Pantry</h2>
+        <p>Manage ingredients with zones, prices, and expiry urgency labels.</p>
+    </article>
+    <article class="panel feature-card">
+        <span class="panel-icon">🍳</span>
+        <h2>Recipe Recommendations</h2>
+        <p>Use set matching, expiry priority, substitutions, and cost estimation.</p>
+    </article>
+    <article class="panel feature-card">
+        <span class="panel-icon">🛒</span>
+        <h2>Shopping List</h2>
+        <p>Convert missing ingredients into a grouped shopping list.</p>
+    </article>
+</section>
+
+<section class="grid two account-grid">
+    <article class="panel">
+        <p class="eyebrow">Core Algorithms</p>
+        <h2>Simple and visible</h2>
+        <p>Matching, fuzzy search, expiry priority, substitutions, and shopping-list generation are kept in controller logic.</p>
+    </article>
+    <article class="panel">
+        <p class="eyebrow">Built for daily use</p>
+        <h2>Pantry, recipes, and shopping</h2>
+        <p>The dashboard connects pantry tracking with recipe gaps and shopping-list planning.</p>
+    </article>
+</section>
+
+<%- include('partials/footer') %>

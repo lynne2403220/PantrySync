@@ -1,0 +1,32 @@
+<%- include('partials/header') %>
+
+<section class="auth-shell">
+    <div class="auth-side">
+        <p class="eyebrow">Zero waste system</p>
+        <h1>Welcome back</h1>
+        <p>Sign in to review expiry priorities, recipe matches, and your shopping plan.</p>
+        <div class="mini-list">
+            <span>Zero Waste Score</span>
+            <span>Use First labels</span>
+            <span>Smart Match recipes</span>
+        </div>
+    </div>
+    <div class="auth-card panel">
+        <h1>Login</h1>
+    <% if (error) { %>
+        <p class="alert"><%= error %></p>
+    <% } %>
+        <form method="post" action="/login" data-validate>
+            <label>Email</label>
+            <input name="email" type="email" value="<%= form.email || '' %>" placeholder="user@example.com" required>
+
+            <label>Password</label>
+            <input name="password" type="password" placeholder="6+ characters" required>
+
+            <button class="button primary full" type="submit">Login</button>
+        </form>
+        <p><a href="/register">Register</a></p>
+    </div>
+</section>
+
+<%- include('partials/footer') %>
