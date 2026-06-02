@@ -1,4 +1,4 @@
-// Routes: handles /register, /login, and /logout endpoints
+// Authentication routes - handles login, register and logout endpoints
 
 const router = require('express').Router();
 const authController = require('../controllers/authController');
