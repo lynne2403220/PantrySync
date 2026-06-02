@@ -1,3 +1,5 @@
+// Routes: handles /register, /login, and /logout endpoints
+
 const router = require('express').Router();
 const authController = require('../controllers/authController');
 const { guestOnly, protect } = require('../middleware/auth');
