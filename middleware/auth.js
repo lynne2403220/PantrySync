@@ -1,3 +1,5 @@
+// Middleware: loads user session and protects routes
+
 const User = require('../models/user');
 
 function fail(status, message) {
