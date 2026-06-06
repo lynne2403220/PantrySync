@@ -1,4 +1,4 @@
-// Middleware: loads user session and protects routes
+// Middleware: used to load user session and protects routes
 
 const User = require('../models/user');
 
