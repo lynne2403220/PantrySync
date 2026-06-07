@@ -1,0 +1,36 @@
+/* auth.css - styles for login, register and landing pages */
+
+.auth-form {
+    max-width: 450px;
+    margin: 50px auto;
+    padding: 30px;
+    background: white;
+    border-radius: 8px;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.auth-form button {
+    width: 100%;
+    padding: 12px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.error-message {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
