@@ -21,3 +21,4 @@ router.post('/profile/delete', requireLogin, authController.deleteAccount);
 router.get('/api/check-email', authController.checkEmail);
 
 module.exports = router;
+// Lynne - Auth Routes
