@@ -140,4 +140,4 @@ async function deleteAccount(req, res, next) {
     }
 }
 
-module.exports = { showHome, showLogin, login, showRegister, register, logout, checkEmail, updateProfile, uploadProfilePicture , deleteAccount };
+module.exports = { showHome, showLogin, login, showRegister, register, logout, checkEmail, updateProfile, uploadProfilePicture , deleteAccount };// Lynne - Auth Controller
