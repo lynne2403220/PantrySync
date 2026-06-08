@@ -1,0 +1,68 @@
+<%- include('partials/header') %>
+
+<div class="auth-container">
+    <div class="auth-card">
+        <div class="auth-header">
+            <h1>Create Account</h1>
+            <p>Join PantrySync and start saving food</p>
+        </div>
+        
+        <% if (error) { %>
+            <div class="error-message">
+                <span class="error-icon">⚠️</span>
+                <%= error %>
+            </div>
+        <% } %>
+        
+        <form method="POST" action="/register">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" name="name" placeholder="John Doe" required>
+            </div>
+            <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" name="email" id="email" placeholder="you@example.com" required>
+                <span id="emailCheck" class="field-hint"></span>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="password" id="password" placeholder="Minimum 6 characters" minlength="6" required>
+                <span id="passwordStrength" class="field-hint"></span>
+            </div>
+            <div class="form-group">
+                <label>Confirm Password</label>
+                <input type="password" name="confirmPassword" id="confirmPassword" required>
+                <span id="confirmMatch" class="field-hint"></span>
+            </div>
+            <div class="form-group">
+                <label>Dietary Preference</label>
+                <select name="diet">
+                    <option value="none">No restrictions</option>
+                    <option value="halal">Halal</option>
+                    <option value="vegetarian">Vegetarian</option>
+                    <option value="vegan">Vegan</option>
+                    <option value="gluten-free">Gluten-free</option>
+                    <option value="dairy-free">Dairy-free</option>
+                    <option value="nut-free">Nut-free</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Admin Access Code</label>
+                <input type="password" name="adminCode" placeholder="Only if you need admin access">
+                <small>Leave empty for regular user account</small>
+            </div>
+            <button type="submit" class="btn-primary">Create Account</button>
+        </form>
+        
+        <div class="auth-links">
+            <a href="/login">Already have an account? Sign in</a>
+        </div>
+        
+        <div class="demo-box">
+            <p><strong>📝 Note:</strong> After registration, you'll need to log in with your new credentials.</p>
+            <p><strong>👑 Admin Code:</strong> Enter "admin123" to create an admin account</p>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>
