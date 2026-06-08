@@ -1,5 +1,3 @@
-// User model - defines the schema for storing user data in MongoDB
-
 const mongoose = require('mongoose');
 
 const diets = ['none', 'vegan', 'vegetarian', 'halal', 'gluten-free', 'dairy-free', 'nut-free'];
