@@ -50,4 +50,4 @@ function fail(status, message) {
     return err;
 }
 
-module.exports = { loadUser, requireLogin, requireGuest, requireAdmin, wantsJson, fail };
+module.exports = { loadUser, requireLogin, requireGuest, requireAdmin, wantsJson, fail };// Lynne - Auth Middleware
