@@ -1,5 +1,3 @@
-// Handles user login, registration and logout logic
-
 const bcrypt = require('bcryptjs');
 const fs = require('fs');
 const path = require('path');

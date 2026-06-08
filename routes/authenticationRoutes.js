@@ -1,5 +1,3 @@
-// Authentication routes = used to handle login, register and logout endpoints
-
 const router = require('express').Router();
 const authController = require('../controllers/authController');
 const { guestOnly, protect } = require('../middleware/auth');
