@@ -1,0 +1,113 @@
+<%- include('partials/header') %>
+
+<section class="page-head admin-head">
+    <div>
+        <p class="eyebrow"><%= t.nav.admin %></p>
+        <h1>System Dashboard</h1>
+        <p class="lead">Read-only integration view for users, pantry data, recipes, and shopping activity.</p>
+    </div>
+    <button class="button" type="button" data-admin-refresh>Refresh</button>
+</section>
+
+<section class="admin-stats">
+    <article class="panel">
+        <span>Users</span>
+        <strong><%= stats.users %></strong>
+    </article>
+    <article class="panel">
+        <span>Admins</span>
+        <strong><%= stats.admins %></strong>
+    </article>
+    <article class="panel">
+        <span>Pantry Items</span>
+        <strong><%= stats.pantryItems %></strong>
+    </article>
+    <article class="panel">
+        <span>Recipes</span>
+        <strong><%= stats.recipes %></strong>
+    </article>
+    <article class="panel">
+        <span>Shopping Items</span>
+        <strong><%= stats.shoppingItems %></strong>
+    </article>
+    <article class="panel">
+        <span>Unbought</span>
+        <strong><%= stats.unboughtShoppingItems %></strong>
+    </article>
+</section>
+
+<section class="grid two admin-tables">
+    <article class="panel">
+        <h2>Recent Users</h2>
+        <table>
+            <thead>
+                <tr><th><%= t.fields.username %></th><th><%= t.fields.email %></th><th>Admin</th></tr>
+            </thead>
+            <tbody>
+                <% recent.users.forEach((row) => { %>
+                    <tr>
+                        <td><%= row.username %></td>
+                        <td><%= row.email %></td>
+                        <td><%= row.isAdmin ? 'Yes' : 'No' %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </article>
+
+    <article class="panel">
+        <h2>Recent Pantry Items</h2>
+        <table>
+            <thead>
+                <tr><th><%= t.fields.name %></th><th>Owner</th><th><%= t.fields.zone %></th></tr>
+            </thead>
+            <tbody>
+                <% recent.pantryItems.forEach((row) => { %>
+                    <tr>
+                        <td><%= row.name %></td>
+                        <td><%= row.owner ? row.owner.email : 'Unknown' %></td>
+                        <td><%= row.zone %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </article>
+
+    <article class="panel">
+        <h2>Recent Recipes</h2>
+        <table>
+            <thead>
+                <tr><th>Title</th><th>Time</th><th>Cost</th></tr>
+            </thead>
+            <tbody>
+                <% recent.recipes.forEach((row) => { %>
+                    <tr>
+                        <td><%= row.title %></td>
+                        <td><%= row.preparationTimeMinutes %> min</td>
+                        <td>EGP <%= row.estimatedCost || 0 %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </article>
+
+    <article class="panel">
+        <h2>Recent Shopping Items</h2>
+        <table>
+            <thead>
+                <tr><th><%= t.fields.name %></th><th>Owner</th><th><%= t.shopping.bought %></th></tr>
+            </thead>
+            <tbody>
+                <% recent.shoppingItems.forEach((row) => { %>
+                    <tr>
+                        <td><%= row.name %></td>
+                        <td><%= row.owner ? row.owner.email : 'Unknown' %></td>
+                        <td><%= row.bought ? 'Yes' : 'No' %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </article>
+</section>
+
+<%- include('partials/footer') %>

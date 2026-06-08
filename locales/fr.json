@@ -1,0 +1,91 @@
+{
+  "nav": {
+    "dashboard": "Tableau de bord",
+    "recipes": "Recettes",
+    "shopping": "Courses",
+    "admin": "Admin",
+    "logout": "Déconnexion",
+    "login": "Connexion",
+    "getStarted": "Commencer"
+  },
+  "dashboard": {
+    "title": "Tableau de bord",
+    "addItem": "Ajouter un article",
+    "profile": "Profil",
+    "items": "Articles",
+    "findRecipes": "Trouver des recettes",
+    "total": "Total",
+    "nearExpiry": "Bientôt périmé",
+    "expired": "Expiré",
+    "noItems": "Aucun article dans le garde-manger",
+    "noItemsHint": "Ajoutez des ingrédients pour débloquer des recommandations.",
+    "save": "Enregistrer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "addButton": "Ajouter"
+  },
+  "fields": {
+    "name": "Nom",
+    "amount": "Quantité",
+    "unit": "Unité",
+    "zone": "Zone",
+    "category": "Catégorie",
+    "expiryDate": "Date d'expiration",
+    "price": "Prix estimé",
+    "notes": "Notes",
+    "username": "Nom d'utilisateur",
+    "email": "Adresse e-mail",
+    "password": "Mot de passe",
+    "newPassword": "Nouveau mot de passe",
+    "dietPrefs": "Préférences alimentaires",
+    "profileImage": "Image de profil",
+    "upload": "Téléverser",
+    "saveProfile": "Sauvegarder le profil"
+  },
+  "expiry": {
+    "expired": "Expiré",
+    "today": "Expire aujourd'hui",
+    "noExpiry": "Pas de date d'expiration"
+  },
+  "shopping": {
+    "title": "Liste de courses",
+    "addItem": "Ajouter un article",
+    "pending": "En attente",
+    "bought": "Acheté",
+    "total": "Total",
+    "estimate": "Estimation",
+    "addToList": "Ajouter à la liste",
+    "bought_btn": "Acheté",
+    "undo": "Annuler",
+    "recipeGaps": "Ingrédients manquants",
+    "openRecipes": "Ouvrir les recettes"
+  },
+  "recipes": {
+    "title": "Recommandations basées sur votre garde-manger",
+    "refresh": "Actualiser",
+    "diet": "Régime",
+    "maxPrep": "Temps de préparation max",
+    "maxMissing": "Manquants max",
+    "quickOnly": "Rapide seulement",
+    "cheapOnly": "Bon marché seulement",
+    "apply": "Appliquer les filtres",
+    "matched": "Disponibles",
+    "missing": "Manquants",
+    "steps": "Étapes",
+    "addShopping": "Ajouter les manquants à la liste"
+  },
+  "auth": {
+    "welcomeBack": "Bienvenue",
+    "signInPrompt": "Connectez-vous à votre garde-manger",
+    "signIn": "Se connecter",
+    "createAccount": "Créer un compte",
+    "joinPrompt": "Rejoignez PantrySync et arrêtez de gaspiller",
+    "noAccount": "Pas de compte ? Créez-en un",
+    "hasAccount": "Déjà un compte ? Connectez-vous",
+    "adminCode": "Code administrateur (optionnel)",
+    "dietPref": "Préférence alimentaire",
+    "demoAccounts": "Comptes de démonstration"
+  },
+  "footer": "PantrySync — mangez bien, gaspillez moins.",
+  "language": "Langue"
+}

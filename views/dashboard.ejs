@@ -1,0 +1,235 @@
+<%- include('partials/header') %>
+
+<section class="page-head pantry-head">
+    <div>
+        <p class="eyebrow">Pantry</p>
+        <h1><%= user.username %>'s <%= t.dashboard.title %></h1>
+        <p class="lead">Track ingredients by storage zone, expiry date, and recipe readiness.</p>
+    </div>
+    <div class="pantry-stats">
+        <div>
+            <strong><%= stats.total %></strong>
+            <span><%= t.dashboard.total %></span>
+        </div>
+        <div>
+            <strong><%= stats.nearExpiry %></strong>
+            <span><%= t.dashboard.nearExpiry %></span>
+        </div>
+        <div>
+            <strong><%= stats.expired %></strong>
+            <span><%= t.dashboard.expired %></span>
+        </div>
+    </div>
+</section>
+
+<section class="grid two pantry-layout">
+    <form class="panel pantry-form" action="/items" method="post" data-pantry-form>
+        <h2><%= t.dashboard.addItem %></h2>
+        <p class="muted">Expired dates are allowed for demo visibility, but recipe scoring will not boost expired food.</p>
+
+        <label for="name"><%= t.fields.name %></label>
+        <input id="name" name="name" list="food-options" autocomplete="off" required>
+        <datalist id="food-options"></datalist>
+
+        <div class="form-grid">
+            <div>
+                <label for="amount"><%= t.fields.amount %></label>
+                <input id="amount" name="amount" type="number" min="0" step="0.01" value="1" required>
+            </div>
+            <div>
+                <label for="unit"><%= t.fields.unit %></label>
+                <select id="unit" name="unit">
+                    <% units.forEach((unit) => { %>
+                        <option value="<%= unit %>"><%= unit %></option>
+                    <% }) %>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-grid">
+            <div>
+                <label for="zone"><%= t.fields.zone %></label>
+                <select id="zone" name="zone">
+                    <% zones.forEach((zone) => { %>
+                        <option value="<%= zone %>"><%= zoneLabels[zone] %></option>
+                    <% }) %>
+                </select>
+            </div>
+            <div>
+                <label for="category"><%= t.fields.category %></label>
+                <select id="category" name="category">
+                    <% categories.forEach((category) => { %>
+                        <option value="<%= category %>"><%= categoryLabels[category] %></option>
+                    <% }) %>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-grid">
+            <div>
+                <label for="expiryDate"><%= t.fields.expiryDate %></label>
+                <input id="expiryDate" name="expiryDate" type="date">
+            </div>
+            <div>
+                <label for="price"><%= t.fields.price %></label>
+                <input id="price" name="price" type="number" min="0" step="0.01" value="0">
+            </div>
+        </div>
+
+        <label for="notes"><%= t.fields.notes %></label>
+        <textarea id="notes" name="notes" rows="3"></textarea>
+
+        <button class="button primary full" type="submit"><%= t.dashboard.addButton %></button>
+    </form>
+
+    <div class="panel profile-panel">
+        <h2><%= t.dashboard.profile %></h2>
+        <div class="profile-row">
+            <% if (user.profileImage) { %>
+                <img class="profile-image" src="<%= user.profileImage %>" alt="">
+            <% } else { %>
+                <div class="profile-placeholder"><%= user.username.charAt(0).toUpperCase() %></div>
+            <% } %>
+            <div>
+                <strong><%= user.username %></strong>
+                <p class="muted"><%= user.email %></p>
+            </div>
+        </div>
+
+        <form action="/profile" method="post">
+            <label for="profileUsername"><%= t.fields.username %></label>
+            <input id="profileUsername" name="username" value="<%= user.username %>" minlength="2" required>
+
+            <label for="profilePassword"><%= t.fields.newPassword %></label>
+            <input id="profilePassword" name="password" type="password" minlength="6" placeholder="Optional">
+
+            <fieldset class="diet-list">
+                <legend><%= t.fields.dietPrefs %></legend>
+                <% diets.forEach((diet) => { %>
+                    <label>
+                        <input type="checkbox" name="diets" value="<%= diet %>" <%= user.diets.includes(diet) ? 'checked' : '' %>>
+                        <%= diet %>
+                    </label>
+                <% }) %>
+            </fieldset>
+
+            <button class="button" type="submit"><%= t.fields.saveProfile %></button>
+        </form>
+
+        <form class="upload-form" action="/profile/picture" method="post" enctype="multipart/form-data">
+            <label for="profileImage"><%= t.fields.profileImage %></label>
+            <input id="profileImage" name="profileImage" type="file" accept="image/jpeg,image/png,image/webp,image/gif">
+            <button class="button" type="submit"><%= t.fields.upload %></button>
+        </form>
+    </div>
+</section>
+
+<section class="panel pantry-table-panel">
+    <div class="section-row">
+        <div>
+            <p class="eyebrow">Inventory</p>
+            <h2><%= t.dashboard.items %></h2>
+        </div>
+        <a class="button" href="/recipes"><%= t.dashboard.findRecipes %></a>
+    </div>
+
+    <% if (!items.length) { %>
+        <div class="empty-state">
+            <h3><%= t.dashboard.noItems %></h3>
+            <p class="muted"><%= t.dashboard.noItemsHint %></p>
+        </div>
+    <% } else { %>
+        <div class="pantry-cards" data-item-list>
+            <% items.forEach((item) => { %>
+                <% const expiry = expiryInfo(item.expiryDate); %>
+                <article class="pantry-card <%= expiry.status %>" data-item-card="<%= item._id %>">
+                    <div class="item-summary">
+                        <div>
+                            <h3><%= item.name %></h3>
+                            <p><%= item.amount %> <%= item.unit %> · <%= categoryLabels[item.category] %> · <%= zoneLabels[item.zone] %></p>
+                        </div>
+                        <span class="expiry-pill <%= expiry.status %>"><%= expiry.label %></span>
+                    </div>
+
+                    <% if (item.notes) { %>
+                        <p class="item-notes"><%= item.notes %></p>
+                    <% } %>
+
+                    <details>
+                        <summary><%= t.dashboard.edit %></summary>
+                        <form action="/items/<%= item._id %>/update" method="post" data-pantry-form>
+                            <label><%= t.fields.name %></label>
+                            <input name="name" value="<%= item.name %>" required>
+
+                            <div class="form-grid">
+                                <div>
+                                    <label><%= t.fields.amount %></label>
+                                    <input name="amount" type="number" min="0" step="0.01" value="<%= item.amount %>" required>
+                                </div>
+                                <div>
+                                    <label><%= t.fields.unit %></label>
+                                    <select name="unit">
+                                        <% units.forEach((unit) => { %>
+                                            <option value="<%= unit %>" <%= item.unit === unit ? 'selected' : '' %>><%= unit %></option>
+                                        <% }) %>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-grid">
+                                <div>
+                                    <label><%= t.fields.zone %></label>
+                                    <select name="zone">
+                                        <% zones.forEach((zone) => { %>
+                                            <option value="<%= zone %>" <%= item.zone === zone ? 'selected' : '' %>><%= zoneLabels[zone] %></option>
+                                        <% }) %>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label><%= t.fields.category %></label>
+                                    <select name="category">
+                                        <% categories.forEach((category) => { %>
+                                            <option value="<%= category %>" <%= item.category === category ? 'selected' : '' %>><%= categoryLabels[category] %></option>
+                                        <% }) %>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-grid">
+                                <div>
+                                    <label><%= t.fields.expiryDate %></label>
+                                    <input name="expiryDate" type="date" value="<%= item.expiryDate ? item.expiryDate.toISOString().slice(0, 10) : '' %>">
+                                </div>
+                                <div>
+                                    <label><%= t.fields.price %></label>
+                                    <input name="price" type="number" min="0" step="0.01" value="<%= item.price || 0 %>">
+                                </div>
+                            </div>
+
+                            <label><%= t.fields.notes %></label>
+                            <textarea name="notes" rows="2"><%= item.notes || '' %></textarea>
+
+                            <button class="button primary" type="submit"><%= t.dashboard.save %></button>
+                        </form>
+                    </details>
+
+                    <form action="/items/<%= item._id %>/delete" method="post" data-delete-form>
+                        <button class="button danger" type="submit"><%= t.dashboard.delete %></button>
+                    </form>
+                </article>
+            <% }) %>
+        </div>
+    <% } %>
+
+    <div class="pagination">
+        <% if (page > 1) { %>
+            <a class="button" href="/dashboard?page=<%= page - 1 %>&limit=<%= limit %>">Previous</a>
+        <% } %>
+        <span>Page <%= page %> of <%= pages %></span>
+        <% if (page < pages) { %>
+            <a class="button" href="/dashboard?page=<%= page + 1 %>&limit=<%= limit %>">Next</a>
+        <% } %>
+    </div>
+</section>
+
+<%- include('partials/footer') %>

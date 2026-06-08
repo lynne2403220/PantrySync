@@ -1,0 +1,292 @@
+[
+  {
+    "title": "Spinach Egg Scramble",
+    "ingredients": [
+      { "name": "egg", "amount": 2, "unit": "pcs" },
+      { "name": "spinach", "amount": 1, "unit": "cup" },
+      { "name": "milk", "amount": 2, "unit": "tbsp" }
+    ],
+    "steps": ["Whisk eggs with milk.", "Cook spinach until wilted.", "Add eggs and stir until set."],
+    "preparationTimeMinutes": 12,
+    "diets": ["vegetarian"],
+    "tags": ["quick", "breakfast", "near-expiry"],
+    "estimatedCost": 35,
+    "sourceName": "PantrySync curated"
+  },
+  {
+    "title": "Tomato Rice Bowl",
+    "ingredients": [
+      { "name": "rice", "amount": 1, "unit": "cup" },
+      { "name": "tomato", "amount": 2, "unit": "pcs" },
+      { "name": "onion", "amount": 1, "unit": "pcs" }
+    ],
+    "steps": ["Cook rice until tender.", "Saute onion and tomato.", "Serve tomato mixture over rice."],
+    "preparationTimeMinutes": 25,
+    "diets": ["vegetarian", "vegan", "halal"],
+    "tags": ["cheap", "lunch"],
+    "estimatedCost": 28,
+    "sourceName": "PantrySync curated"
+  },
+  {
+    "title": "Garlic Chicken Rice",
+    "ingredients": [
+      { "name": "chicken", "amount": 1, "unit": "kg" },
+      { "name": "rice", "amount": 1, "unit": "cup" },
+      { "name": "garlic", "amount": 2, "unit": "pcs" },
+      { "name": "onion", "amount": 1, "unit": "pcs" }
+    ],
+    "steps": ["Season chicken with garlic.", "Cook rice separately.", "Saute chicken and onion until cooked through."],
+    "preparationTimeMinutes": 40,
+    "diets": ["halal"],
+    "tags": ["dinner", "protein"],
+    "estimatedCost": 140,
+    "sourceName": "PantrySync curated"
+  },
+  {
+    "title": "Yogurt Oat Bowl",
+    "ingredients": [
+      { "name": "yogurt", "amount": 1, "unit": "cup" },
+      { "name": "oats", "amount": 0.5, "unit": "cup" },
+      { "name": "banana", "amount": 1, "unit": "pcs" }
+    ],
+    "steps": ["Spoon yogurt into a bowl.", "Stir in oats.", "Top with sliced banana."],
+    "preparationTimeMinutes": 8,
+    "diets": ["vegetarian"],
+    "tags": ["quick", "breakfast", "cheap"],
+    "estimatedCost": 30,
+    "sourceName": "PantrySync curated"
+  },
+  {
+    "title": "Bean Pasta",
+    "ingredients": [
+      { "name": "pasta", "amount": 200, "unit": "g" },
+      { "name": "beans", "amount": 1, "unit": "cup" },
+      { "name": "tomato", "amount": 2, "unit": "pcs" },
+      { "name": "garlic", "amount": 1, "unit": "pcs" }
+    ],
+    "steps": ["Boil pasta.", "Warm beans with tomato and garlic.", "Toss pasta with the sauce."],
+    "preparationTimeMinutes": 22,
+    "diets": ["vegetarian", "vegan", "halal"],
+    "tags": ["cheap", "dinner"],
+    "estimatedCost": 45,
+    "sourceName": "PantrySync curated"
+  },
+  {
+    "title": "Lentil Soup",
+    "ingredients": [
+      { "name": "lentils", "amount": 1, "unit": "cup" },
+      { "name": "carrot", "amount": 1, "unit": "pcs" },
+      { "name": "onion", "amount": 1, "unit": "pcs" },
+      { "name": "garlic", "amount": 1, "unit": "pcs" }
+    ],
+    "steps": ["Rinse lentils.", "Simmer lentils with vegetables.", "Season and serve warm."],
+    "preparationTimeMinutes": 35,
+    "diets": ["vegetarian", "vegan", "halal"],
+    "tags": ["cheap", "soup"],
+    "estimatedCost": 38,
+    "sourceName": "PantrySync curated"
+  },
+  {
+    "title": "Tuna Potato Salad",
+    "ingredients": [
+      { "name": "tuna", "amount": 1, "unit": "can" },
+      { "name": "potato", "amount": 2, "unit": "pcs" },
+      { "name": "yogurt", "amount": 3, "unit": "tbsp" },
+      { "name": "cucumber", "amount": 1, "unit": "pcs" }
+    ],
+    "steps": ["Boil potatoes and cool.", "Mix tuna with yogurt.", "Fold in cucumber and potatoes."],
+    "preparationTimeMinutes": 28,
+    "diets": ["halal"],
+    "tags": ["lunch", "protein"],
+    "estimatedCost": 80,
+    "sourceName": "PantrySync curated"
+  },
+  {
+    "title": "Vegetable Fried Rice",
+    "ingredients": [
+      { "name": "rice", "amount": 1, "unit": "cup" },
+      { "name": "carrot", "amount": 1, "unit": "pcs" },
+      { "name": "peas", "amount": 0.5, "unit": "cup" },
+      { "name": "egg", "amount": 1, "unit": "pcs" }
+    ],
+    "steps": ["Cook vegetables in a pan.", "Add rice and stir.", "Scramble egg into the rice."],
+    "preparationTimeMinutes": 18,
+    "diets": ["vegetarian", "halal"],
+    "tags": ["quick", "dinner"],
+    "estimatedCost": 42,
+    "sourceName": "PantrySync curated"
+  },
+  {
+    "title": "Cheese Tomato Toast",
+    "ingredients": [
+      { "name": "bread", "amount": 2, "unit": "pcs" },
+      { "name": "cheese", "amount": 50, "unit": "g" },
+      { "name": "tomato", "amount": 1, "unit": "pcs" }
+    ],
+    "steps": ["Top bread with tomato and cheese.", "Toast until cheese softens.", "Serve hot."],
+    "preparationTimeMinutes": 10,
+    "diets": ["vegetarian"],
+    "tags": ["quick", "snack"],
+    "estimatedCost": 32,
+    "sourceName": "PantrySync curated"
+  },
+  {
+    "title": "Chickpea Cucumber Salad",
+    "ingredients": [
+      { "name": "chickpeas", "amount": 1, "unit": "cup" },
+      { "name": "cucumber", "amount": 1, "unit": "pcs" },
+      { "name": "tomato", "amount": 1, "unit": "pcs" },
+      { "name": "oil", "amount": 1, "unit": "tbsp" }
+    ],
+    "steps": ["Combine chickpeas and chopped vegetables.", "Dress with oil.", "Chill or serve immediately."],
+    "preparationTimeMinutes": 12,
+    "diets": ["vegetarian", "vegan", "halal"],
+    "tags": ["quick", "cheap", "salad"],
+    "estimatedCost": 36,
+    "sourceName": "PantrySync curated"
+  },
+  {
+    "title": "Banana Oat Pancakes",
+    "ingredients": [
+      { "name": "banana", "amount": 1, "unit": "pcs" },
+      { "name": "oats", "amount": 0.5, "unit": "cup" },
+      { "name": "egg", "amount": 1, "unit": "pcs" },
+      { "name": "milk", "amount": 0.25, "unit": "cup" }
+    ],
+    "steps": ["Blend banana, oats, egg, and milk.", "Cook small pancakes on both sides.", "Serve warm."],
+    "preparationTimeMinutes": 16,
+    "diets": ["vegetarian"],
+    "tags": ["breakfast", "quick"],
+    "estimatedCost": 34,
+    "sourceName": "PantrySync curated"
+  },
+  {
+    "title": "Garlic Spinach Pasta",
+    "ingredients": [
+      { "name": "pasta", "amount": 200, "unit": "g" },
+      { "name": "spinach", "amount": 1, "unit": "cup" },
+      { "name": "garlic", "amount": 2, "unit": "pcs" },
+      { "name": "cheese", "amount": 30, "unit": "g" }
+    ],
+    "steps": ["Boil pasta.", "Saute garlic and spinach.", "Toss pasta with spinach and cheese."],
+    "preparationTimeMinutes": 20,
+    "diets": ["vegetarian"],
+    "tags": ["near-expiry", "dinner"],
+    "estimatedCost": 55,
+    "sourceName": "PantrySync curated"
+  },
+  {
+    "title": "Chicken Tomato Soup",
+    "ingredients": [
+      { "name": "chicken", "amount": 500, "unit": "g" },
+      { "name": "tomato", "amount": 3, "unit": "pcs" },
+      { "name": "onion", "amount": 1, "unit": "pcs" },
+      { "name": "carrot", "amount": 1, "unit": "pcs" }
+    ],
+    "steps": ["Cook chicken pieces.", "Simmer tomato, onion, and carrot.", "Combine and cook until tender."],
+    "preparationTimeMinutes": 38,
+    "diets": ["halal"],
+    "tags": ["soup", "dinner"],
+    "estimatedCost": 120,
+    "sourceName": "PantrySync curated"
+  },
+  {
+    "title": "Apple Yogurt Bowl",
+    "ingredients": [
+      { "name": "apple", "amount": 1, "unit": "pcs" },
+      { "name": "yogurt", "amount": 1, "unit": "cup" },
+      { "name": "oats", "amount": 0.25, "unit": "cup" }
+    ],
+    "steps": ["Slice apple.", "Add yogurt.", "Sprinkle oats on top."],
+    "preparationTimeMinutes": 7,
+    "diets": ["vegetarian"],
+    "tags": ["quick", "breakfast", "cheap"],
+    "estimatedCost": 27,
+    "sourceName": "PantrySync curated"
+  },
+  {
+    "title": "Potato Egg Hash",
+    "ingredients": [
+      { "name": "potato", "amount": 2, "unit": "pcs" },
+      { "name": "egg", "amount": 2, "unit": "pcs" },
+      { "name": "onion", "amount": 1, "unit": "pcs" }
+    ],
+    "steps": ["Dice and cook potatoes.", "Add onion.", "Top with eggs and cook until set."],
+    "preparationTimeMinutes": 24,
+    "diets": ["vegetarian", "halal"],
+    "tags": ["breakfast", "cheap"],
+    "estimatedCost": 40,
+    "sourceName": "PantrySync curated"
+  },
+  {
+    "title": "Quick Tomato Omelet",
+    "ingredients": [
+      { "name": "egg", "amount": 2, "unit": "pcs" },
+      { "name": "tomato", "amount": 1, "unit": "pcs" },
+      { "name": "cheese", "amount": 20, "unit": "g" }
+    ],
+    "steps": ["Beat eggs.", "Add chopped tomato.", "Cook and finish with cheese."],
+    "preparationTimeMinutes": 9,
+    "diets": ["vegetarian"],
+    "tags": ["quick", "breakfast"],
+    "estimatedCost": 33,
+    "sourceName": "PantrySync curated"
+  },
+  {
+    "title": "Pantry Bean Rice",
+    "ingredients": [
+      { "name": "beans", "amount": 1, "unit": "cup" },
+      { "name": "rice", "amount": 1, "unit": "cup" },
+      { "name": "onion", "amount": 1, "unit": "pcs" }
+    ],
+    "steps": ["Cook rice.", "Warm beans with onion.", "Serve beans over rice."],
+    "preparationTimeMinutes": 20,
+    "diets": ["vegetarian", "vegan", "halal"],
+    "tags": ["cheap", "pantry"],
+    "estimatedCost": 31,
+    "sourceName": "PantrySync curated"
+  },
+  {
+    "title": "Cucumber Yogurt Dip",
+    "ingredients": [
+      { "name": "cucumber", "amount": 1, "unit": "pcs" },
+      { "name": "yogurt", "amount": 1, "unit": "cup" },
+      { "name": "garlic", "amount": 1, "unit": "pcs" }
+    ],
+    "steps": ["Grate cucumber.", "Mix with yogurt and garlic.", "Chill before serving."],
+    "preparationTimeMinutes": 10,
+    "diets": ["vegetarian", "halal"],
+    "tags": ["quick", "side"],
+    "estimatedCost": 26,
+    "sourceName": "PantrySync curated"
+  },
+  {
+    "title": "Vegan Lentil Curry",
+    "ingredients": [
+      { "name": "lentils", "amount": 1, "unit": "cup" },
+      { "name": "tomato", "amount": 2, "unit": "pcs" },
+      { "name": "onion", "amount": 1, "unit": "pcs" },
+      { "name": "rice", "amount": 1, "unit": "cup" }
+    ],
+    "steps": ["Simmer lentils with tomato and onion.", "Cook rice.", "Serve curry over rice."],
+    "preparationTimeMinutes": 34,
+    "diets": ["vegetarian", "vegan", "halal"],
+    "tags": ["dinner", "cheap"],
+    "estimatedCost": 48,
+    "sourceName": "PantrySync curated"
+  },
+  {
+    "title": "Freezer Pea Rice",
+    "ingredients": [
+      { "name": "peas", "amount": 1, "unit": "cup" },
+      { "name": "rice", "amount": 1, "unit": "cup" },
+      { "name": "garlic", "amount": 1, "unit": "pcs" }
+    ],
+    "steps": ["Cook rice.", "Warm peas with garlic.", "Mix peas into rice."],
+    "preparationTimeMinutes": 18,
+    "diets": ["vegetarian", "vegan", "halal"],
+    "tags": ["quick", "freezer", "cheap"],
+    "estimatedCost": 29,
+    "sourceName": "PantrySync curated"
+  }
+]

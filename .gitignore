@@ -1,0 +1,7 @@
+node_modules/
+.env
+public/uploads/
+uploads/
+certs/
+.codex_tmp/
+.DS_Store

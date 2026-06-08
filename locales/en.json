@@ -1,0 +1,91 @@
+{
+  "nav": {
+    "dashboard": "Dashboard",
+    "recipes": "Recipes",
+    "shopping": "Shopping",
+    "admin": "Admin",
+    "logout": "Logout",
+    "login": "Login",
+    "getStarted": "Get started"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "addItem": "Add Pantry Item",
+    "profile": "Profile",
+    "items": "Items",
+    "findRecipes": "Find Recipes",
+    "total": "Total",
+    "nearExpiry": "Near expiry",
+    "expired": "Expired",
+    "noItems": "No pantry items yet",
+    "noItemsHint": "Add ingredients to unlock recipe recommendations.",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "addButton": "Add Item"
+  },
+  "fields": {
+    "name": "Name",
+    "amount": "Amount",
+    "unit": "Unit",
+    "zone": "Zone",
+    "category": "Category",
+    "expiryDate": "Expiry Date",
+    "price": "Price Estimate",
+    "notes": "Notes",
+    "username": "Username",
+    "email": "Email Address",
+    "password": "Password",
+    "newPassword": "New Password",
+    "dietPrefs": "Diet preferences",
+    "profileImage": "Profile image",
+    "upload": "Upload",
+    "saveProfile": "Save Profile"
+  },
+  "expiry": {
+    "expired": "Expired",
+    "today": "Expires today",
+    "noExpiry": "No expiry date"
+  },
+  "shopping": {
+    "title": "Shopping List",
+    "addItem": "Add Item",
+    "pending": "Pending",
+    "bought": "Bought",
+    "total": "Total",
+    "estimate": "Estimate",
+    "addToList": "Add To List",
+    "bought_btn": "Bought",
+    "undo": "Undo",
+    "recipeGaps": "Recipe Gaps",
+    "openRecipes": "Open Recipes"
+  },
+  "recipes": {
+    "title": "Pantry-Based Recommendations",
+    "refresh": "Refresh",
+    "diet": "Diet",
+    "maxPrep": "Max prep time",
+    "maxMissing": "Max missing",
+    "quickOnly": "Quick only",
+    "cheapOnly": "Cheap only",
+    "apply": "Apply Filters",
+    "matched": "Matched",
+    "missing": "Missing",
+    "steps": "Steps",
+    "addShopping": "Add missing to shopping list"
+  },
+  "auth": {
+    "welcomeBack": "Welcome Back",
+    "signInPrompt": "Sign in to access your pantry",
+    "signIn": "Sign In",
+    "createAccount": "Create Account",
+    "joinPrompt": "Join PantrySync and start saving food",
+    "noAccount": "Don't have an account? Create one",
+    "hasAccount": "Already have an account? Sign in",
+    "adminCode": "Admin Code (optional)",
+    "dietPref": "Dietary Preference",
+    "demoAccounts": "Demo Accounts"
+  },
+  "footer": "PantrySync — eat well, waste less.",
+  "language": "Language"
+}

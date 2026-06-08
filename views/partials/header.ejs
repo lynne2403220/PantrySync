@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="<%= lang %>" <% if (isRtl) { %>dir="rtl"<% } %>>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %> | PantrySync</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="/css/app.css">
+    <% if (typeof featureCss !== 'undefined') { %>
+        <link rel="stylesheet" href="<%= featureCss %>">
+    <% } %>
+    <% if (isRtl) { %>
+    <style>
+        body { direction: rtl; text-align: right; }
+        .site-nav { flex-direction: row-reverse; }
+        .pagination { direction: ltr; }
+    </style>
+    <% } %>
+</head>
+<body>
+    <header class="site-header">
+        <a href="/" class="brand">🌿 PantrySync</a>
+        <nav class="site-nav">
+            <% if (user) { %>
+                <a href="/dashboard" class="<%= currentPath === '/dashboard' ? 'active' : '' %>"><%= t.nav.dashboard %></a>
+                <a href="/recipes" class="<%= currentPath === '/recipes' ? 'active' : '' %>"><%= t.nav.recipes %></a>
+                <a href="/shopping-list" class="<%= currentPath.startsWith('/shopping') ? 'active' : '' %>"><%= t.nav.shopping %></a>
+                <% if (user.isAdmin) { %>
+                    <a href="/admin" class="<%= currentPath === '/admin' ? 'active' : '' %>"><%= t.nav.admin %></a>
+                <% } %>
+                <form action="/logout" method="POST" class="nav-form">
+                    <button type="submit"><%= t.nav.logout %></button>
+                </form>
+            <% } else { %>
+                <a href="/login"><%= t.nav.login %></a>
+                <a href="/register" class="button primary"><%= t.nav.getStarted %></a>
+            <% } %>
+            <!-- Language switcher -->
+            <div style="display:flex;gap:4px;margin-left:8px;align-items:center;">
+                <% supportedLangs.forEach(function(l) { %>
+                    <a href="?lang=<%= l %>" style="padding:4px 8px;border-radius:6px;font-size:0.8rem;font-weight:600;text-decoration:none;<%= lang === l ? 'background:var(--primary);color:#fff;' : 'color:var(--muted);' %>"><%= l.toUpperCase() %></a>
+                <% }) %>
+            </div>
+        </nav>
+    </header>
+    <main class="page-shell">

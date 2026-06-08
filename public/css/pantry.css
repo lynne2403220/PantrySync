@@ -1,0 +1,223 @@
+.pantry-head { align-items: stretch; }
+
+.pantry-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(92px, 1fr));
+    gap: 10px;
+}
+
+.pantry-stats div {
+    min-width: 92px;
+    padding: 14px 12px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: var(--bg);
+    text-align: center;
+}
+
+.pantry-stats strong {
+    display: block;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--primary-dark);
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.pantry-stats span,
+.item-summary p,
+.item-notes {
+    color: var(--muted);
+    font-size: 0.82rem;
+}
+
+.pantry-layout {
+    align-items: start;
+    margin-bottom: 20px;
+}
+
+.pantry-form .full {
+    width: 100%;
+    margin-top: 18px;
+    min-height: 44px;
+    border-radius: var(--radius-sm);
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+    font-weight: 600;
+    transition: background 0.15s;
+}
+
+.pantry-form .full:hover { background: var(--primary-dark); }
+
+.profile-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 14px 0 18px;
+}
+
+.profile-image,
+.profile-placeholder {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-sm);
+    flex-shrink: 0;
+}
+
+.profile-image { object-fit: cover; }
+
+.profile-placeholder {
+    display: grid;
+    place-items: center;
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    border: 1px solid var(--line);
+}
+
+.diet-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    margin: 14px 0;
+    padding: 14px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: var(--bg);
+}
+
+.diet-list legend {
+    padding: 0 6px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.diet-list label {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.diet-list input {
+    width: auto;
+    min-height: auto;
+    accent-color: var(--primary);
+}
+
+.upload-form {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+}
+
+.section-row,
+.item-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.pantry-cards { display: grid; gap: 10px; }
+
+.pantry-card {
+    padding: 16px 18px;
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: #fff;
+    transition: box-shadow 0.15s;
+}
+
+.pantry-card:hover { box-shadow: var(--shadow-sm); }
+
+.pantry-card.expired  { border-left-color: var(--accent); }
+.pantry-card.today,
+.pantry-card.soon     { border-left-color: var(--warning); }
+.pantry-card.watch    { border-left-color: #7a9840; }
+.pantry-card.safe,
+.pantry-card.none     { border-left-color: var(--success); }
+
+.item-summary h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+}
+
+.item-summary p { margin: 3px 0 0; }
+
+.expiry-pill {
+    white-space: nowrap;
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid currentColor;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+}
+
+.expiry-pill.expired { color: var(--accent); }
+.expiry-pill.today,
+.expiry-pill.soon    { color: var(--warning); }
+.expiry-pill.safe,
+.expiry-pill.none    { color: var(--success); }
+
+details { margin: 12px 0; }
+
+summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--muted);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+summary::before {
+    content: '›';
+    font-size: 1.1rem;
+    transition: transform 0.15s;
+    display: inline-block;
+}
+
+details[open] summary::before { transform: rotate(90deg); }
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.empty-state {
+    padding: 40px 30px;
+    border: 1px dashed var(--line);
+    border-radius: var(--radius);
+    text-align: center;
+    color: var(--muted);
+    background: var(--bg);
+}
+
+@media (max-width: 820px) {
+    .pantry-stats,
+    .diet-list { grid-template-columns: 1fr; }
+
+    .section-row,
+    .item-summary {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}

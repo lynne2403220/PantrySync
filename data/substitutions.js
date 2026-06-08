@@ -1,0 +1,22 @@
+module.exports = {
+    egg: ['tofu', 'yogurt', 'banana'],
+    milk: ['yogurt', 'oat milk', 'water'],
+    cheese: ['feta', 'yogurt', 'nutritional yeast'],
+    butter: ['oil', 'yogurt'],
+    spinach: ['lettuce', 'kale', 'zucchini'],
+    tomato: ['tomato paste', 'red pepper', 'canned tomato'],
+    onion: ['garlic', 'leek', 'shallot'],
+    garlic: ['onion', 'garlic powder'],
+    chicken: ['tuna', 'beans', 'chickpeas'],
+    rice: ['pasta', 'bread', 'potato'],
+    pasta: ['rice', 'noodles', 'potato'],
+    bread: ['tortilla', 'rice', 'potato'],
+    beans: ['lentils', 'chickpeas'],
+    lentils: ['beans', 'chickpeas'],
+    yogurt: ['milk', 'sour cream'],
+    cucumber: ['lettuce', 'zucchini'],
+    oats: ['flour', 'bread crumbs'],
+    banana: ['apple', 'honey'],
+    tuna: ['chicken', 'beans', 'chickpeas'],
+    potato: ['rice', 'pasta', 'bread']
+};

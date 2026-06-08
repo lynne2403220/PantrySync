@@ -1,0 +1,87 @@
+<%- include('partials/header') %>
+
+<section class="page-head recipes-head">
+    <div>
+        <p class="eyebrow">Recipes</p>
+        <h1><%= t.recipes.title %></h1>
+        <p class="lead">Matches use your pantry ingredients first, then boost recipes that consume near-expiry items.</p>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center;">
+        <a class="button" href="/recipes/discover" style="border-color:var(--primary);color:var(--primary);">🔍 Discover Online</a>
+        <button class="button primary" type="button" data-refresh-recipes><%= t.recipes.refresh %></button>
+    </div>
+</section>
+
+<section class="panel recipe-filters">
+    <form data-recipe-filters>
+        <div class="filter-grid">
+            <label>
+                <%= t.recipes.diet %>
+                <select name="diets">
+                    <option value="">Any</option>
+                    <option value="vegetarian">Vegetarian</option>
+                    <option value="vegan">Vegan</option>
+                    <option value="halal">Halal</option>
+                    <option value="gluten-free">Gluten-free</option>
+                    <option value="dairy-free">Dairy-free</option>
+                </select>
+            </label>
+            <label>
+                <%= t.recipes.maxPrep %>
+                <input name="maxPrepTime" type="number" min="1" step="1" placeholder="Any">
+            </label>
+            <label>
+                <%= t.recipes.maxMissing %>
+                <input name="maxMissing" type="number" min="0" step="1" placeholder="Any">
+            </label>
+            <label class="check-filter">
+                <input name="quickOnly" type="checkbox" value="true">
+                <%= t.recipes.quickOnly %>
+            </label>
+            <label class="check-filter">
+                <input name="cheapOnly" type="checkbox" value="true">
+                <%= t.recipes.cheapOnly %>
+            </label>
+        </div>
+        <button class="button" type="submit"><%= t.recipes.apply %></button>
+    </form>
+</section>
+
+<section class="recipe-status" data-recipe-status role="status"></section>
+<section class="recipe-grid" data-recipe-results></section>
+
+<template id="recipe-card-template">
+    <article class="panel recipe-card">
+        <div class="recipe-top">
+            <div>
+                <h2 data-title></h2>
+                <p class="muted" data-meta></p>
+            </div>
+            <div class="score-box">
+                <strong data-match></strong>
+                <span>match</span>
+            </div>
+        </div>
+        <div class="score-line">
+            <span data-score></span>
+        </div>
+        <div class="ingredient-columns">
+            <div>
+                <h3><%= t.recipes.matched %></h3>
+                <ul data-matched></ul>
+            </div>
+            <div>
+                <h3><%= t.recipes.missing %></h3>
+                <ul data-missing></ul>
+            </div>
+        </div>
+        <div class="substitution-box" data-substitutions></div>
+        <details>
+            <summary><%= t.recipes.steps %></summary>
+            <ol data-steps></ol>
+        </details>
+        <button class="button" type="button" data-add-shopping><%= t.recipes.addShopping %></button>
+    </article>
+</template>
+
+<%- include('partials/footer') %>

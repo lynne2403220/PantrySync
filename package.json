@@ -1,0 +1,21 @@
+{
+  "name": "pantrysync",
+  "version": "1.0.0",
+  "description": "Express/EJS MVC pantry, recipe, shopping, and admin integration project with i18n, file upload, and external API.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node seed.js",
+    "check": "node --check server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "connect-mongo": "^6.0.0",
+    "dotenv": "^17.2.3",
+    "ejs": "^3.1.10",
+    "express": "^5.2.1",
+    "express-fileupload": "^1.5.2",
+    "express-session": "^1.19.0",
+    "mongoose": "^9.0.0"
+  }
+}

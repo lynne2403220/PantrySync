@@ -1,0 +1,126 @@
+<%- include('partials/header') %>
+
+<section class="page-head recipes-head">
+    <div>
+        <p class="eyebrow">External API — Spoonacular</p>
+        <h1>Discover Recipes Online</h1>
+        <p class="lead">Search millions of recipes from the Spoonacular API using your pantry ingredients.</p>
+    </div>
+    <a class="button" href="/recipes">← Back to Pantry Recipes</a>
+</section>
+
+<section class="panel" style="margin-bottom:20px;">
+    <form id="discover-form" style="display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap;">
+        <div style="flex:1;min-width:220px;">
+            <label for="ingredients" style="display:block;margin-bottom:6px;font-weight:600;font-size:0.875rem;">Ingredients (comma-separated)</label>
+            <input id="ingredients" name="ingredients" placeholder="e.g. egg, tomato, cheese" style="width:100%;">
+        </div>
+        <button class="button primary" type="submit" style="min-height:42px;">Search</button>
+    </form>
+    <p class="muted" style="margin-top:10px;font-size:0.85rem;">Powered by <strong>Spoonacular API</strong> — finds real web recipes matching your available ingredients.</p>
+</section>
+
+<section id="discover-status" class="recipe-status" role="status" style="display:none;"></section>
+
+<section id="discover-results" class="recipe-grid"></section>
+
+<template id="discover-card-template">
+    <article class="panel recipe-card">
+        <div class="recipe-top">
+            <div>
+                <h2 data-title style="font-size:1.05rem;"></h2>
+                <p class="muted" data-meta style="font-size:0.85rem;"></p>
+            </div>
+            <div class="score-box" style="background:var(--primary-light);">
+                <strong data-match style="color:var(--primary);font-size:1.4rem;"></strong>
+                <span style="font-size:0.72rem;">used</span>
+            </div>
+        </div>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;margin:8px 0;">
+            <div style="flex:1;min-width:120px;">
+                <h3 style="font-size:0.78rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);margin:0 0 6px;">Matched ingredients</h3>
+                <ul data-used style="margin:0;padding-left:16px;font-size:0.88rem;"></ul>
+            </div>
+            <div style="flex:1;min-width:120px;">
+                <h3 style="font-size:0.78rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);margin:0 0 6px;">You still need</h3>
+                <ul data-missed style="margin:0;padding-left:16px;font-size:0.88rem;color:var(--accent);"></ul>
+            </div>
+        </div>
+        <a data-link class="button" target="_blank" rel="noopener" style="text-align:center;">View Full Recipe ↗</a>
+    </article>
+</template>
+
+<script>
+(function () {
+    const form = document.getElementById('discover-form');
+    const statusEl = document.getElementById('discover-status');
+    const resultsEl = document.getElementById('discover-results');
+    const template = document.getElementById('discover-card-template');
+
+    function setStatus(msg, type) {
+        statusEl.textContent = msg;
+        statusEl.className = 'recipe-status ' + (type || '');
+        statusEl.style.display = msg ? '' : 'none';
+    }
+
+    function renderCard(recipe) {
+        const node = template.content.firstElementChild.cloneNode(true);
+        node.querySelector('[data-title]').textContent = recipe.title;
+        node.querySelector('[data-meta]').textContent = `${recipe.usedIngredientCount} matched · ${recipe.missedIngredientCount} missing`;
+        node.querySelector('[data-match]').textContent = recipe.usedIngredientCount;
+
+        const usedList = node.querySelector('[data-used]');
+        (recipe.usedIngredients || []).forEach(name => {
+            const li = document.createElement('li');
+            li.textContent = name;
+            usedList.appendChild(li);
+        });
+
+        const missedList = node.querySelector('[data-missed]');
+        if (recipe.missedIngredients && recipe.missedIngredients.length) {
+            recipe.missedIngredients.forEach(name => {
+                const li = document.createElement('li');
+                li.textContent = name;
+                missedList.appendChild(li);
+            });
+        } else {
+            const li = document.createElement('li');
+            li.textContent = 'None!';
+            li.style.color = 'var(--success)';
+            missedList.appendChild(li);
+        }
+
+        node.querySelector('[data-link]').href = recipe.sourceUrl;
+        return node;
+    }
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const ingredients = document.getElementById('ingredients').value.trim();
+        if (!ingredients) {
+            setStatus('Please enter at least one ingredient.', 'error');
+            return;
+        }
+        setStatus('Searching Spoonacular...', '');
+        resultsEl.innerHTML = '';
+
+        try {
+            const res = await fetch(`/api/spoonacular/search?ingredients=${encodeURIComponent(ingredients)}`, {
+                headers: { Accept: 'application/json' }
+            });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.error || 'Request failed');
+            if (!data.results || !data.results.length) {
+                setStatus('No recipes found for those ingredients.', '');
+                return;
+            }
+            setStatus(`Found ${data.results.length} recipes for "${data.query}"`, 'ok');
+            data.results.forEach(r => resultsEl.appendChild(renderCard(r)));
+        } catch (err) {
+            setStatus('Could not load Spoonacular results. Check your API key in .env: ' + err.message, 'error');
+        }
+    });
+})();
+</script>
+
+<%- include('partials/footer') %>

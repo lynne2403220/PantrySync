@@ -1,0 +1,91 @@
+{
+  "nav": {
+    "dashboard": "لوحة التحكم",
+    "recipes": "الوصفات",
+    "shopping": "قائمة التسوق",
+    "admin": "الإدارة",
+    "logout": "تسجيل الخروج",
+    "login": "تسجيل الدخول",
+    "getStarted": "ابدأ الآن"
+  },
+  "dashboard": {
+    "title": "لوحة التحكم",
+    "addItem": "إضافة منتج",
+    "profile": "الملف الشخصي",
+    "items": "المنتجات",
+    "findRecipes": "البحث عن وصفات",
+    "total": "الإجمالي",
+    "nearExpiry": "قريب الانتهاء",
+    "expired": "منتهي الصلاحية",
+    "noItems": "لا توجد منتجات بعد",
+    "noItemsHint": "أضف مكونات للحصول على توصيات الوصفات.",
+    "save": "حفظ",
+    "delete": "حذف",
+    "edit": "تعديل",
+    "addButton": "إضافة"
+  },
+  "fields": {
+    "name": "الاسم",
+    "amount": "الكمية",
+    "unit": "الوحدة",
+    "zone": "المنطقة",
+    "category": "الفئة",
+    "expiryDate": "تاريخ الانتهاء",
+    "price": "السعر التقديري",
+    "notes": "ملاحظات",
+    "username": "اسم المستخدم",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "newPassword": "كلمة مرور جديدة",
+    "dietPrefs": "التفضيلات الغذائية",
+    "profileImage": "صورة الملف الشخصي",
+    "upload": "رفع",
+    "saveProfile": "حفظ الملف الشخصي"
+  },
+  "expiry": {
+    "expired": "منتهي الصلاحية",
+    "today": "ينتهي اليوم",
+    "noExpiry": "لا يوجد تاريخ انتهاء"
+  },
+  "shopping": {
+    "title": "قائمة التسوق",
+    "addItem": "إضافة منتج",
+    "pending": "قيد الانتظار",
+    "bought": "تم الشراء",
+    "total": "الإجمالي",
+    "estimate": "التقدير",
+    "addToList": "إضافة للقائمة",
+    "bought_btn": "تم الشراء",
+    "undo": "تراجع",
+    "recipeGaps": "مكونات ناقصة",
+    "openRecipes": "فتح الوصفات"
+  },
+  "recipes": {
+    "title": "توصيات بناءً على مخزنك",
+    "refresh": "تحديث",
+    "diet": "النظام الغذائي",
+    "maxPrep": "وقت التحضير الأقصى",
+    "maxMissing": "الحد الأقصى للمكونات الناقصة",
+    "quickOnly": "سريع فقط",
+    "cheapOnly": "اقتصادي فقط",
+    "apply": "تطبيق الفلاتر",
+    "matched": "متاح",
+    "missing": "ناقص",
+    "steps": "خطوات التحضير",
+    "addShopping": "أضف الناقص لقائمة التسوق"
+  },
+  "auth": {
+    "welcomeBack": "مرحباً بك",
+    "signInPrompt": "سجل دخولك للوصول إلى مخزنك",
+    "signIn": "تسجيل الدخول",
+    "createAccount": "إنشاء حساب",
+    "joinPrompt": "انضم إلى PantrySync وابدأ بتوفير الطعام",
+    "noAccount": "ليس لديك حساب؟ أنشئ واحداً",
+    "hasAccount": "لديك حساب بالفعل؟ سجل الدخول",
+    "adminCode": "رمز المشرف (اختياري)",
+    "dietPref": "التفضيل الغذائي",
+    "demoAccounts": "حسابات تجريبية"
+  },
+  "footer": "PantrySync — كُل جيداً، وقلل الهدر.",
+  "language": "اللغة"
+}

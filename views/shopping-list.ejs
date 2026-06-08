@@ -1,0 +1,131 @@
+<%- include('partials/header') %>
+
+<section class="page-head shopping-head">
+    <div>
+        <p class="eyebrow">Shopping</p>
+        <h1><%= t.shopping.title %></h1>
+        <p class="lead">Track manual groceries and recipe gaps in one owner-scoped list.</p>
+    </div>
+    <div class="shopping-summary">
+        <div>
+            <strong><%= pendingCount %></strong>
+            <span><%= t.shopping.pending %></span>
+        </div>
+        <div>
+            <strong><%= totalCount %></strong>
+            <span><%= t.shopping.total %></span>
+        </div>
+        <div>
+            <strong>EGP <%= estimatedTotal.toFixed ? estimatedTotal.toFixed(2) : estimatedTotal %></strong>
+            <span><%= t.shopping.estimate %></span>
+        </div>
+    </div>
+</section>
+
+<% if (error) { %>
+    <p class="error-box"><%= error %></p>
+<% } %>
+<% if (success) { %>
+    <p class="notice-box"><%= success %></p>
+<% } %>
+
+<section class="grid two shopping-layout">
+    <form class="panel shopping-form" action="/shopping-list/add" method="post" data-shopping-form>
+        <h2><%= t.shopping.addItem %></h2>
+        <label for="name"><%= t.fields.name %></label>
+        <input id="name" name="name" required>
+
+        <div class="form-grid">
+            <div>
+                <label for="quantity">Quantity</label>
+                <input id="quantity" name="quantity" type="number" min="0" step="0.01" value="1" required>
+            </div>
+            <div>
+                <label for="unit"><%= t.fields.unit %></label>
+                <input id="unit" name="unit" value="pcs">
+            </div>
+        </div>
+
+        <label for="priceEstimate"><%= t.fields.price %></label>
+        <input id="priceEstimate" name="priceEstimate" type="number" min="0" step="0.01" placeholder="Auto if blank">
+
+        <button class="button primary full" type="submit"><%= t.shopping.addToList %></button>
+    </form>
+
+    <div class="panel shopping-help">
+        <h2><%= t.shopping.recipeGaps %></h2>
+        <p class="muted">The recipes page can send missing ingredients here.</p>
+        <a class="button" href="/recipes"><%= t.shopping.openRecipes %></a>
+    </div>
+</section>
+
+<section class="grid two shopping-columns">
+    <div class="panel">
+        <h2><%= t.shopping.pending %></h2>
+        <% if (!pendingItems.length) { %>
+            <p class="muted">No pending shopping items.</p>
+        <% } %>
+        <div class="shopping-items">
+            <% pendingItems.forEach((item) => { %>
+                <article class="shopping-item" data-shopping-item="<%= item._id %>">
+                    <div>
+                        <h3><%= item.name %></h3>
+                        <p><%= item.quantity %> <%= item.unit %> · EGP <%= (item.priceEstimate || 0).toFixed(2) %></p>
+                        <% if (item.sourceRecipe) { %>
+                            <p class="source">From <%= item.sourceRecipe %></p>
+                        <% } %>
+                    </div>
+                    <div class="item-actions">
+                        <form action="/shopping-list/<%= item._id %>/toggle" method="post" data-toggle-form>
+                            <button class="button" type="submit"><%= t.shopping.bought_btn %></button>
+                        </form>
+                        <details>
+                            <summary><%= t.dashboard.edit %></summary>
+                            <form action="/shopping-list/<%= item._id %>/update" method="post" data-shopping-form>
+                                <label><%= t.fields.name %></label>
+                                <input name="name" value="<%= item.name %>" required>
+                                <label>Quantity</label>
+                                <input name="quantity" type="number" min="0" step="0.01" value="<%= item.quantity %>" required>
+                                <label><%= t.fields.unit %></label>
+                                <input name="unit" value="<%= item.unit %>">
+                                <label><%= t.fields.price %></label>
+                                <input name="priceEstimate" type="number" min="0" step="0.01" value="<%= item.priceEstimate || 0 %>">
+                                <button class="button primary" type="submit"><%= t.dashboard.save %></button>
+                            </form>
+                        </details>
+                        <form action="/shopping-list/<%= item._id %>/delete" method="post" data-delete-form>
+                            <button class="button danger" type="submit"><%= t.dashboard.delete %></button>
+                        </form>
+                    </div>
+                </article>
+            <% }) %>
+        </div>
+    </div>
+
+    <div class="panel">
+        <h2><%= t.shopping.bought %></h2>
+        <% if (!boughtItems.length) { %>
+            <p class="muted">Bought items will appear here.</p>
+        <% } %>
+        <div class="shopping-items bought">
+            <% boughtItems.forEach((item) => { %>
+                <article class="shopping-item" data-shopping-item="<%= item._id %>">
+                    <div>
+                        <h3><%= item.name %></h3>
+                        <p><%= item.quantity %> <%= item.unit %> · EGP <%= (item.priceEstimate || 0).toFixed(2) %></p>
+                    </div>
+                    <div class="item-actions">
+                        <form action="/shopping-list/<%= item._id %>/toggle" method="post" data-toggle-form>
+                            <button class="button" type="submit"><%= t.shopping.undo %></button>
+                        </form>
+                        <form action="/shopping-list/<%= item._id %>/delete" method="post" data-delete-form>
+                            <button class="button danger" type="submit"><%= t.dashboard.delete %></button>
+                        </form>
+                    </div>
+                </article>
+            <% }) %>
+        </div>
+    </div>
+</section>
+
+<%- include('partials/footer') %>

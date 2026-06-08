@@ -1,0 +1,18 @@
+<%- include('partials/header') %>
+
+<div style="text-align:center; padding: 80px 20px 60px;">
+    <p style="font-size:0.78rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--primary); margin:0 0 16px;">Smart pantry management</p>
+    <h1 style="font-family:'DM Serif Display',serif; font-size:clamp(2.4rem,6vw,4rem); font-weight:400; margin:0 0 16px; line-height:1.1;">Stop wasting food.<br><em>Start cooking smarter.</em></h1>
+    <p style="font-size:1.05rem; color:var(--muted); margin:0 0 32px; max-width:480px; margin-left:auto; margin-right:auto;">Track what's in your pantry, get recipe ideas, and never forget what's about to expire.</p>
+
+    <% if (user) { %>
+        <a href="/dashboard" class="button primary" style="padding:12px 28px; font-size:1rem; border-radius:999px;"><%= t.nav.dashboard %></a>
+    <% } else { %>
+        <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+            <a href="/register" class="button primary" style="padding:12px 28px; font-size:1rem; border-radius:999px;"><%= t.nav.getStarted %></a>
+            <a href="/login" class="button" style="padding:12px 28px; font-size:1rem; border-radius:999px;"><%= t.nav.login %></a>
+        </div>
+    <% } %>
+</div>
+
+<%- include('partials/footer') %>

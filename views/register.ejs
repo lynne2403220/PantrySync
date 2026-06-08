@@ -1,0 +1,57 @@
+<%- include('partials/header') %>
+
+<div class="auth-container">
+    <div class="auth-card">
+        <div class="auth-header">
+            <h1><%= t.auth.createAccount %></h1>
+            <p><%= t.auth.joinPrompt %></p>
+        </div>
+        
+        <% if (error) { %>
+            <div class="error-message"><%= error %></div>
+        <% } %>
+        
+        <form method="POST" action="/register">
+            <div class="form-group">
+                <label><%= t.fields.username %></label>
+                <input type="text" name="username" required>
+            </div>
+            
+            <div class="form-group">
+                <label><%= t.fields.email %></label>
+                <input type="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label><%= t.fields.password %> (min 6 characters)</label>
+                <input type="password" name="password" minlength="6" required>
+            </div>
+            
+            <div class="form-group">
+                <label><%= t.auth.dietPref %></label>
+                <select name="diet">
+                    <option value="none">None</option>
+                    <option value="halal">Halal</option>
+                    <option value="vegetarian">Vegetarian</option>
+                    <option value="vegan">Vegan</option>
+                    <option value="gluten-free">Gluten-free</option>
+                    <option value="dairy-free">Dairy-free</option>
+                    <option value="nut-free">Nut-free</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label><%= t.auth.adminCode %></label>
+                <input type="password" name="adminCode" placeholder="Enter admin code for admin access">
+            </div>
+            
+            <button type="submit" class="btn-primary"><%= t.auth.createAccount %></button>
+        </form>
+        
+        <div class="auth-links">
+            <a href="/login"><%= t.auth.hasAccount %></a>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>
