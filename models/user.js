@@ -25,4 +25,4 @@ userSchema.methods.toSessionUser = function toSessionUser() {
 
 userSchema.statics.diets = allowedDiets;
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('User', userSchema);// Lynne - User Model
